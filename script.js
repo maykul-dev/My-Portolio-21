@@ -97,6 +97,20 @@ async function getGithubStats() {
     }
 }
 
+
+// 5. Close if user clicks outside the content box
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closePdfModal();
+    }
+}
+
+// 6. Close if user presses ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closePdfModal();
+    }
+});
 // Call the function
 getGithubStats();
 /* Disable Right-Click */
@@ -116,3 +130,16 @@ document.onkeydown = function(e) {
         return false;
     }
 }
+function openPdfModal(pdfUrl) {
+    const modal = document.getElementById('pdfModal');
+    const viewer = document.getElementById('modalPdfViewer');
+    const downloadLink = document.getElementById('fallbackLink');
+
+    // Set the source of the iframe and the download link
+    viewer.src = pdfUrl;
+    downloadLink.href = pdfUrl;
+
+    // Show the modal
+    modal.style.display = 'flex'; // or 'block' depending on your CSS
+}
+
