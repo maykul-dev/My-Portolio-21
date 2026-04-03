@@ -1,0 +1,499 @@
+/* =========================================
+   1. CSS Variables - The Control Center
+   ========================================= */
+:root {
+    /* Default (Dark Mode) */
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #1e1e1e;
+    --section-bg: #1e1e1e;
+    --accent-color: #007bff;
+    --secondary-bg: #2c2c2c;
+    --card-bg: #252525;
+    --shadow: rgba(0,0,0,0.3);
+}
+
+/* Light Mode Overrides */
+body.light-mode {
+    --bg-color: #f4f4f4;
+    --text-color: #333333;
+    --header-bg: #ffffff;
+    --section-bg: #ffffff;
+    --secondary-bg: #e0e0e0;
+    --card-bg: #f9f9f9;
+    --shadow: rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   2. Global Resets
+   ========================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* =========================================
+   3. Header & Navigation
+   ========================================= */
+header {
+    position: relative;
+    background: var(--header-bg);
+    color: var(--text-color);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+#profile-pic {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 8px; /* CHANGED: 8px gives it a nice rounded square look. Use 0px for a perfectly sharp square! */
+    object-fit: cover;
+    border: 3px solid var(--text-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Let's also center the desktop header text so it matches! */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative; /* Keeps the theme button anchored */
+}
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* =========================================
+   4. Sections & Projects
+   ========================================= */
+section {
+    padding: 40px;
+    max-width: 800px;
+    margin: 30px auto;
+    background: var(--section-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+h2 {
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--secondary-bg);
+    padding-bottom: 10px;
+}
+
+ul { list-style: none; padding: 0; }
+li {
+    background: var(--secondary-bg);
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid var(--secondary-bg);
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 250px;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--shadow);
+}
+
+/* General Buttons & Links */
+a { color: var(--accent-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+button:hover { filter: brightness(90%); }
+
+.btn-resume {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-resume:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+.btn-resume i { margin-right: 8px; }
+
+/* =========================================
+   5. Certifications (Sliding Design)
+   ========================================= */
+.cert-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+}
+
+.cert-card {
+    min-width: 320px;
+    flex: 0 0 auto;
+    background: var(--card-bg); /* Supports Dark/Light mode! */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--secondary-bg);
+    box-shadow: 0 4px 8px var(--shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.cert-icon {
+    font-size: 40px;
+    color: var(--accent-color);
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+    background: var(--secondary-bg);
+    border-radius: 50%;
+}
+
+.cert-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.cert-info p {
+    margin: 5px 0 0;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+.view-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+/* Custom Scrollbar for Certifications */
+.cert-grid::-webkit-scrollbar { height: 10px; }
+.cert-grid::-webkit-scrollbar-track { background: var(--secondary-bg); border-radius: 10px; }
+.cert-grid::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
+.cert-grid::-webkit-scrollbar-thumb:hover { background: #0056b3; }
+
+/* =========================================
+   6. Education Section
+   ========================================= */
+.edu-card {
+    display: flex;
+    gap: 20px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--shadow);
+    border-color: var(--accent-color);
+}
+
+.edu-icon {
+    font-size: 2rem;
+    background: var(--secondary-bg);
+    min-width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.edu-content h3 { margin: 0 0 5px 0; color: var(--accent-color); }
+.edu-content .school { font-weight: bold; font-size: 1.1rem; margin: 0; color: var(--text-color); }
+.edu-content .year { font-style: italic; color: #888; margin-bottom: 10px; }
+.edu-content ul { margin: 0; padding-left: 20px; list-style: disc; }
+.edu-content li {
+    background: transparent;
+    border: none;
+    padding: 2px 0;
+    color: var(--text-color);
+    display: list-item;
+}
+
+/* =========================================
+   7. Social Links & Footer
+   ========================================= */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--secondary-bg);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+.social-btn.email:hover { background: #EA4335; color: white; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4); }
+.social-btn.github:hover { background: #333; color: white; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); }
+.social-btn.facebook:hover { background: #1877F2; color: white; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4); }
+
+/* Modal (If still using it) */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); }
+.modal-content { background-color: #fff; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 800px; border-radius: 8px; position: relative; }
+.close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close-btn:hover, .close-btn:focus { color: black; text-decoration: none; }
+
+/* =========================================
+   7.5 TABLET & IPAD RESPONSIVENESS
+   ========================================= */
+@media (max-width: 1024px) {
+    
+    /* Flexbox allows us to rearrange the header items visually */
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px 30px 20px;
+    }
+
+    #theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        margin: 0;
+    }
+
+    /* Visual Order: Profile -> Nav -> Name */
+    #profile-pic {
+        order: 1;
+        position: relative; 
+        top: auto;
+        left: auto;
+        margin: 0 0 20px 0; 
+        width: 140px;
+        height: 140px;
+    }
+
+    nav { 
+        order: 2; /* Puts Nav AFTER the profile picture */
+        gap: 20px;
+        margin-bottom: 20px; 
+    }
+
+    header h1 { order: 3; margin: 0 0 5px 0; }
+    header p { order: 4; margin: 0; }
+
+    section {
+        margin: 20px;
+        padding: 30px;
+        max-width: 100%;
+        box-sizing: border-box; 
+    }
+    
+    .skills-container { gap: 20px; }
+}
+
+/* =========================================
+   8. MOBILE RESPONSIVENESS (iOS & Android)
+   (This MUST be at the very bottom!)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    section {
+        padding: 20px 15px;
+        margin: 15px;       
+        box-sizing: border-box;
+    }
+
+    /* Flexbox for Mobile Header */
+    header { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 15px 20px 15px; 
+    }
+    
+    #theme-toggle {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin: 0;
+    }
+
+#profile-pic {
+        order: 1;
+        margin: 0 0 15px 0;
+        width: 120px; 
+        height: 120px;
+        max-width: 100%;     
+        border-radius: 8px;  /* CHANGED: Make sure this matches your desktop choice! */
+        object-fit: cover;  
+    }
+
+    /* Puts Nav ABOVE Name */
+    nav { 
+        order: 2;
+        display: flex; 
+        flex-direction: row;     
+        flex-wrap: wrap;         
+        justify-content: center; 
+        gap: 10px; 
+        margin-top: 0;
+        margin-bottom: 15px;              
+    }
+    
+    nav a { 
+        background: transparent; 
+        padding: 5px 10px;       
+        display: inline-block; 
+    }
+
+    header h1 { 
+        order: 3;
+        font-size: 1.6rem;
+        margin: 0 0 5px 0;
+    }
+
+    header p {
+        order: 4;
+        margin: 0;
+    }
+
+    /* Grids */
+    .project {
+        flex: 1 1 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .edu-card {
+        flex-direction: column; 
+        text-align: center;
+        gap: 10px;
+    }
+
+    .cert-card {
+        min-width: 280px; 
+        flex: 0 0 auto;
+    }
+
+    .social-links { gap: 15px; }
+
+    /* Skills Mobile Fix */
+    .skills-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .skill-category { text-align: center; }
+    
+    .skill-category h3 {
+        border-left: none;
+        border-bottom: 2px solid var(--accent-color);
+        padding-left: 0;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+    
+    .skill-tags { justify-content: center; }
+}
+/* Hacker Text Style */
+#typed-name {
+    font-family: 'Courier New', Courier, monospace; /* Classic coding font */
+    color: #ffffff; /* Hacker green - you can change this back to your accent color! */
+    letter-spacing: 2px;
+}

@@ -14,504 +14,12 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-    /* 1. CSS Variables - The Control Center */
-    :root {
-        /* Default (Dark Mode) Variables */
-        --bg-color: #121212;
-        --text-color: #e0e0e0;
-        --header-bg: #1e1e1e;
-        --section-bg: #1e1e1e;
-        --accent-color: #007bff;
-        --secondary-bg: #2c2c2c;
-        --card-bg: #252525;
-        --shadow: rgba(0,0,0,0.3);
-    }
-
-    /* Light Mode Overrides */
-    body.light-mode {
-        --bg-color: #f4f4f4;
-        --text-color: #333333;
-        --header-bg: #ffffff;
-        --section-bg: #ffffff;
-        /* We keep the accent color the same, or you can change it too! */
-        --secondary-bg: #e0e0e0;
-        --card-bg: #f9f9f9;
-        --shadow: rgba(0,0,0,0.1);
-    }
-
-    /* 2. Global Resets */
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: var(--bg-color); /* Uses variable */
-        color: var(--text-color);    /* Uses variable */
-        line-height: 1.6;
-        transition: background 0.3s, color 0.3s; /* Smooth transition effect */
-    }
-
-    /* Header Container */
-header {
-    position: relative; /* Anchor point */
-    background: var(--header-bg);
-    color: var(--text-color);
-    padding: 60px 20px;
-    text-align: center;
-    border-bottom: 3px solid var(--accent-color);
-}
-
-/* 1. Profile Picture (Top Left) */
-/* Update this part in your <style> */
-#profile-pic {
-    position: absolute;
-    top: 45px;
-    left: 220px;
-    
-    /* 1. SIZE: 2x2 inches is roughly 192px, but that's too big for a header. 
-       Let's use 100px (nice and visible). */
-    width: 150px;
-    height: 200px; 
-
-    /* 2. SHAPE: This makes it a Square */
-    border-radius: 5px; /* Use '0' if you want sharp corners */
-
-    /* 3. CROP: This ensures the photo isn't squished if your original isn't square */
-    object-fit: cover;
-    
-    /* Optional: A nice border like a real ID photo */
-    border: 3px solid rgb(0, 0, 0);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-/* 2. Theme Button (Top Right) */
-#theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px; /* Moved to the right side */
-    margin: 0;
-}
-
-    /* 4. Section Styling */
-    section {
-        padding: 40px;
-        max-width: 800px;
-        margin: 30px auto;
-        background: var(--section-bg);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px var(--shadow);
-    }
-
-    h2 {
-        color: var(--accent-color);
-        border-bottom: 1px solid var(--secondary-bg);
-        padding-bottom: 10px;
-    }
-
-    /* 5. Lists & Projects */
-    ul { list-style: none; padding: 0; }
-    
-    li {
-        background: var(--secondary-bg);
-        display: inline-block;
-        padding: 8px 16px;
-        margin: 5px;
-        border-radius: 4px;
-        border: 1px solid var(--secondary-bg);
-    }
-
-    .project-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .project {
-        background: var(--card-bg);
-        padding: 20px;
-        border-radius: 8px;
-        flex: 1 1 250px;
-        border-left: 4px solid var(--accent-color);
-        box-shadow: 0 2px 4px var(--shadow);
-    }
-
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .project {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1 1 250px;
-    border-left: 4px solid var(--accent-color);
-    box-shadow: 0 2px 4px var(--shadow);
-
-    /* Add the smooth transition here */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Add the Hover Effect */
-.project:hover {
-    transform: translateY(-5px); /* Lifts UP */
-    box-shadow: 0 8px 15px var(--shadow);
-}
-
-    /* Button Styling */
-    button {
-        background: var(--accent-color);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        margin-top: 10px;
-    }
-    button:hover { filter: brightness(90%); }
-    /* Navigation Container */
-nav {
-    display: flex;             /* Aligns items in a row */
-    justify-content: center;   /* Centers them on the screen */
-    gap: 30px;                 /* <--- THIS IS THE SPACING (Adjust to 40px or 50px if needed) */
-    margin-top: 20px;          /* Adds space between your Name and the Links */
-    flex-wrap: wrap;           /* Prevents breaking if screen gets too narrow */
-}
-
-/* Individual Links */
-nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;         /* Slightly larger text looks better with more space */
-    transition: color 0.3s;    /* Smooth color change on hover */
-}
-
-nav a:hover {
-    color: var(--accent-color);
-}
-    
-   /* =========================================
-       MOBILE RESPONSIVENESS (Paste at bottom)
-       ========================================= */
-    @media (max-width: 768px) {
-        
-        /* 1. Fix the Header Elements */
-        header {
-            padding: 30px 15px;
-        }
-
-        /* Un-stick the Profile Pic and Center it */
-        #profile-pic {
-            position: relative; /* Stop floating in corner */
-            top: auto;
-            left: auto;
-            display: block;
-            margin: 0 auto 15px auto; /* Center it */
-            width: 100px; /* Make it bigger for phone header */
-            height: 100px;
-        }
-
-        /* Un-stick the Dark Mode Button and Center it */
-        #theme-toggle {
-            position: relative;
-            top: auto;
-            right: auto;
-            display: block;
-            margin: 0 auto 20px auto;
-        }
-
-        /* 2. Shrink Text */
-        header h1 {
-            font-size: 1.8rem;
-        }
-
-        /* 3. Stack Navigation Links */
-        nav {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        nav a {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            display: block;
-            border-radius: 5px;
-        }
-
-        /* 4. Fix Grids (Projects, Certs, Education) */
-        .project, .cert-card, .edu-card {
-            flex: 1 1 100%; /* Force full width */
-            width: 100%;
-        }
-
-        .filter-buttons button {
-            width: 100%;
-            margin-left: 0;
-            margin-bottom: 10px;
-        }
-    }/* Certifications Grid */
-    .cert-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-    }
-
-    /* Individual Card */
-    .cert-card {
-        background: var(--card-bg); /* Adapts to theme */
-        padding: 15px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        border: 1px solid var(--secondary-bg);
-        transition: transform 0.2s ease;
-    }
-
-    .cert-card:hover {
-        transform: translateY(-5px); /* Subtle lift effect */
-        border-color: var(--accent-color);
-    }
-
-    /* Icon Styling */
-    .cert-icon {
-        font-size: 2rem;
-        background: var(--secondary-bg);
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-    }
-
-    /* Text Styling */
-    .cert-info h3 {
-        margin: 0;
-        font-size: 1rem;
-        color: var(--text-color);
-    }
-
-    .cert-info p {
-        margin: 5px 0 0;
-        font-size: 0.85rem;
-        color: var(--accent-color);
-        opacity: 0.8;
-    }
-    /* Style the Icon Container */
-.cert-icon {
-    font-size: 40px;      /* Make the icon big */
-    color: #007bff;       /* Blue color (Change to gold #ffd700 for a medal look) */
-    margin-right: 15px;   /* Space between icon and text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background: #f0f8ff;  /* Light blue background circle */
-    border-radius: 50%;   /* Makes it a perfect circle */
-}
-    /* Modal Background (Hidden by default) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
-}
-
-/* Modal Content Box */
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto; /* 5% from top, centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Width of the box */
-    max-width: 800px;
-    border-radius: 8px;
-    position: relative;
-}
-
-/* The Close Button */
-.close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-btn:hover,
-.close-btn:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-/* Social Links Container */
-    .social-links {
-        display: flex;
-        justify-content: center; /* Center the icons */
-        gap: 30px;               /* Space between them */
-        margin-top: 20px;
-    }
-
-    /* Shared Icon Styles */
-    .social-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        background: var(--secondary-bg);
-        border-radius: 50%;      /* Makes them perfect circles */
-        font-size: 1.8rem;       /* Icon size */
-        color: var(--text-color);
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        text-decoration: none;   /* Removes underline */
-    }
-    .view-btn {
-    background-color: #007bff; /* Blue color */
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    margin-top: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s ease;
-}
-
-.view-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-    /* Hover Effects (Specific Colors) */
-    
-    /* Red for Email */
-    .social-btn.email:hover {
-        background: #EA4335; 
-        color: white;
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
-    }
-
-    /* Black/White for GitHub */
-    .social-btn.github:hover {
-        background: #333; /* Dark grey */
-        color: white;
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    }
-
-    /* Blue for Facebook */
-    .social-btn.facebook:hover {
-        background: #1877F2; 
-        color: white;
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
-    }
-    /* Education Section Styles */
-/* Education Card */
-.edu-card {
-    display: flex;
-    gap: 20px;
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border-left: 5px solid var(--accent-color);
-    box-shadow: 0 4px 6px var(--shadow);
-    
-    /* Ensure smooth movement */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
-
-/* CHANGE: Now it lifts UP (-5px) instead of sliding right */
-.edu-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 15px var(--shadow); /* Adds a nice floating shadow */
-    border-color: var(--accent-color);
-}
-
-/* The Icon Circle */
-.edu-icon {
-    font-size: 2rem;
-    background: var(--secondary-bg);
-    min-width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-/* Text Styling */
-.edu-content h3 {
-    margin: 0 0 5px 0;
-    color: var(--accent-color);
-}
-
-.edu-content .school {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin: 0;
-    color: var(--text-color);
-}
-
-.edu-content .year {
-    font-style: italic;
-    color: #888;
-    margin-bottom: 10px;
-}
-
-.edu-content ul {
-    margin: 0;
-    padding-left: 20px;
-    list-style: disc;
-}
-
-.edu-content li {
-    background: transparent; /* Overrides the previous 'box' style for skills */
-    border: none;
-    padding: 2px 0;
-    color: var(--text-color);
-    display: list-item; /* Ensures bullets show up */
-}
-/* Resume Button Styles */
-.btn-resume {
-    display: inline-block; /* Makes it behave like a button, not text */
-    padding: 12px 24px;
-    border: 2px solid var(--accent-color); /* Blue Border */
-    color: var(--accent-color);            /* Blue Text */
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    background: transparent;
-}
-
-/* Hover Effect: Fills with Blue */
-.btn-resume:hover {
-    background: var(--accent-color);
-    color: #ffffff; /* Text turns white */
-    transform: translateY(-3px); /* Lifts up slightly */
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4); /* Glow effect */
-}
-
-.btn-resume i {
-    margin-right: 8px; /* Space between icon and text */
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <h1>Hi, I'm Michael Jebulan 👋</h1>
+   <h1><span id="typed-name"></span><span class="cursor">|</span></h1>
     <p>Senior BSIT Student | Hardware & Web Enthusiast</p>
     <img src="profile.jpg" alt="Michael Jebulan" id="profile-pic">
     <nav>
@@ -521,7 +29,6 @@ nav a:hover {
     <a href="#projects">Projects</a>
     <a href="#certifications">Certs</a> 
     <a href="#contact">Contact</a>
-    <button id="theme-toggle" style="margin-left: 20px;">☀️ Light Mode</button>
 </nav>
   </header>
 
@@ -563,14 +70,41 @@ nav a:hover {
 
 </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Frontend Web Dev</li>
-      <li>Arduino & Tinkercad</li>
-      <li>Linux (Basic CLI)</li>
-      <li>Hardware Troubleshooting</li>
-    </ul>
+ <section id="skills">
+    <h2>Technical Skills</h2>
+    
+    <div class="skills-container">
+        
+        <div class="skill-category">
+            <h3>Programming & Web</h3>
+            <ul class="skill-tags">
+                <li><i class="fa-brands fa-python"></i> Python</li>
+                <li><i class="fa-solid fa-code"></i> C++</li>
+                <li><i class="fa-brands fa-js"></i> JavaScript</li>
+                <li><i class="fa-brands fa-html5"></i> HTML & CSS</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Security & Networking</h3>
+            <ul class="skill-tags">
+                <li><i class="fa-solid fa-user-secret"></i> Ethical Hacking</li>
+                <li><i class="fa-solid fa-shield-halved"></i> Cyber Security</li>
+                <li><i class="fa-solid fa-network-wired"></i> Packet Tracer</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Hardware & Tools</h3>
+            <ul class="skill-tags">
+                <li><i class="fa-solid fa-microchip"></i> Arduino</li>
+                <li><i class="fa-solid fa-screwdriver-wrench"></i> EPAS NC II</li>
+                <li><i class="fa-brands fa-github"></i> Git & GitHub</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
  <section id="certifications">
     <h2>Certifications</h2>
     <div class="cert-grid">
@@ -681,8 +215,38 @@ nav a:hover {
     </div>
 </section>
 
-  <script src="script.js"></script>
+<script>
+// We use a self-invoking function to keep it isolated from other buggy scripts
+(function() {
+    const textToType = "Hi, I'm Michael Jebulan";
+    let index = 0;
+    const speed = 100;
 
+    function startTyping() {
+        const nameElement = document.getElementById("typed-name");
+        
+        // If the element isn't found, we wait 100ms and try again (Polling)
+        if (!nameElement) {
+            setTimeout(startTyping, 100);
+            return;
+        }
+
+        // The actual typing logic
+        if (index < textToType.length) {
+            nameElement.innerHTML += textToType.charAt(index);
+            index++;
+            setTimeout(startTyping, speed);
+        }
+    }
+
+    // This ensures it runs even if other scripts on the page fail
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        startTyping();
+    } else {
+        document.addEventListener("DOMContentLoaded", startTyping);
+    }
+})();
+</script>
 </div>
 </body>
 </html>
