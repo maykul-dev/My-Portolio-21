@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Jebulan | Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+   <h1><span id="typed-name"></span><span class="cursor">|</span></h1>
+    <p>Senior BSIT Student | Hardware & Web Enthusiast</p>
+    <img src="profile.jpg.jpg" alt="Michael Jebulan" id="profile-pic">
+    <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a> 
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certs</a> 
+    <a href="#contact">Contact</a>
+</nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a 4th-year IT student passionate about hardware, electronics,
+      and system architecture. I am currently bridging the gap between hardware and software by learning Cyber Security to become pentester.
+    </p>
+    <div style="margin-top: 25px;">
+        <a href="resume.pdf" download class="btn-resume">
+            <i class="fas fa-file-pdf"></i> Download CV
+        </a>
+    </div>
+  </section>
+  <section id="education">
+    <h2>Education</h2>
+    
+    <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-content">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p class="school">Computer Communication Development Institute</p> <p class="year">2022 - Present</p>
+            <ul>
+                <li>Capstone: Ordering System</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="edu-card">
+        <div class="edu-icon">🏫</div>
+        <div class="edu-content">
+            <h3>Senior High School</h3>
+            <p class="school">Sorsogon National High School</p>
+            <p class="year">2020 - 2022</p>
+            <p class="details">TVL Strand (EPAS)</p>
+        </div>
+    </div>
+
+</section>
+
+ <section id="skills">
+    <h2>Technical Skills</h2>
+    
+    <div class="skills-container">
+        
+        <div class="skill-category">
+            <h3>Programming & Web</h3>
+            <ul class="skill-tags">
+                <li><i class="fa-brands fa-python"></i> Python</li>
+                <li><i class="fa-solid fa-code"></i> C++</li>
+                <li><i class="fa-brands fa-js"></i> JavaScript</li>
+                <li><i class="fa-brands fa-html5"></i> HTML & CSS</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Security & Networking</h3>
+            <ul class="skill-tags">
+                <li><i class="fa-solid fa-user-secret"></i> Ethical Hacking</li>
+                <li><i class="fa-solid fa-shield-halved"></i> Cyber Security</li>
+                <li><i class="fa-solid fa-network-wired"></i> Packet Tracer</li>
+            </ul>
+        </div>
+
+        <div class="skill-category">
+            <h3>Hardware & Tools</h3>
+            <ul class="skill-tags">
+                <li><i class="fa-solid fa-microchip"></i> Arduino</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+ <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+        
+        <div class="cert-card">
+            <div class="cert-icon">
+                <i class="fa-brands fa-python"></i>
+            </div> 
+            <div class="cert-info">
+                <h3>Python Essentials</h3>
+                <p>Cisco Networking Academy | Feb 07, 2026</p>
+                <a href="Python.pdf" target="_blank" class="view-btn">View Certificate</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="cert-info">
+                <h3>Introduction to Cyber Security</h3>
+                <p>Cisco Networking Academy | September 11, 2024</p>
+                <a href="Cyber.pdf" target="_blank" class="view-btn">View Certificate</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+             <div class="cert-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="cert-info">
+                <h3>C++ Essentials 1</h3>
+                <p>Cisco Networking Academy | Feb 02, 2026</p>
+                <a href="Essentials.pdf" target="_blank" class="view-btn">View Certificate</a>
+            </div>
+        </div>
+
+        <div class="cert-card">
+            <div class="cert-icon">
+                <i class="fa-solid fa-user-secret"></i>
+            </div>
+            <div class="cert-info">
+                <h3>Ethical Hacker</h3>
+                <p>Cisco Networking Academy | Feb 02, 2026</p>
+                <a href="Ethical.pdf" target="_blank" class="view-btn">View Certificate</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    
+    <div class="filter-buttons" style="margin-bottom: 20px;">
+        <button onclick="filterProjects('all')">Show All</button>
+        <button onclick="filterProjects('hardware')">Hardware 🔌</button>
+        <button onclick="filterProjects('web')">Web Dev 💻</button>
+    </div>
+
+    <div class="project-grid">
+        <div class="project" data-category="hardware">
+          <h3>Arduino LED Control</h3>
+          <p>Controlled LEDs using buttons and Arduino Uno.</p>
+        </div>
+
+        <div class="project" data-category="hardware">
+          <h3>Potentiometer Dimmer</h3>
+          <p>My friend needed an Arduino Project, so I built this custom solution.</p>
+        </div>
+
+        <div class="project" data-category="web">
+            <h3>Personal Portfolio</h3>
+            <p>Responsive portfolio site built with HTML5, CSS3, and JavaScript.</p>
+        </div>
+
+        <div class="project" data-category="web">
+            <h3>Clinic Booking System</h3>
+            <p>A web application for booking appointments, built for my final exam.</p>
+        </div>
+    </div>
+</section>
+
+ <section id="contact">
+    <h2>Contact Me</h2>
+    <p style="text-align: center; margin-bottom: 30px;">
+        Feel free to reach out for collaborations or just a friendly hello!
+    </p>
+
+    <div class="social-links">
+        
+        <a href="mailto:jebulanm86@gmail.com" class="social-btn email" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/maykul-dev" target="_blank" class="social-btn github" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://web.facebook.com/ike.Jeb" target="_blank" class="social-btn facebook" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <button id="hello-btn">Say Hello</button>
+    </div>
+</section>
+<script src="script.js"></script>
+</div>
+</body>
+</html>
